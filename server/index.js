@@ -2,7 +2,6 @@ const express = require('express');
 const parser = require('body-parser');
 const axios = require('axios');
 const db = require('../database/index.js');
-const API_KEY = require('../config.js');
 const github = require('../helpers/github.js');
 let app = express();
 
@@ -40,6 +39,7 @@ app.get('/repos', function (req, res) {
     if (error) {
       console.error(error);
     } else {
+      console.log(process.env);
       res.status(200).json(data);
     }
   });
